@@ -1,0 +1,37 @@
+version: 2
+
+models:
+
+    - name: sales
+      description : one line by order id shows the product info
+      tests:
+        - unique:
+            column_name: "(orders_id || '-' || products_id)"
+            
+      columns:
+          - name: orders_id
+            description : PK - ID of order
+            tests : 
+            - not_null             
+
+          - name: products_id
+            description : ID of product 
+            tests :  
+            - not_null 
+
+          - name: qty
+            
+
+          - name: turnover
+            description : sum of purchase cost and margin
+            tests : 
+            - not_null 
+
+          - name: purchase_cost
+            description : expenses of purchasing, making an item 
+            tests : 
+            - not_null 
+
+          - name: margin
+            description : turnover - purchase cost
+            
